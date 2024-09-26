@@ -11,12 +11,14 @@ print_r($tab1);
 
 
 // Fonction indiquant si doublon ou non
-function doublon($tab1)
-    {
-
+function aDesDoublons($tab1) {
+    // Utiliser array_unique pour enlever les doublons, puis comparer les longueurs des tableaux
+    if (count($tab1) != count(array_unique($tab1))) {
+        return true; // Il y a des doublons
     }
+    return false; // Pas de doublons
+}
 
-// Afficher le plus grand et le plus petit nombre
-echo "Le plus grand nombre est : " . plusGrand($tab1) . "\n";
-echo "Le plus petit nombre est : " . plusPetit($tab1) . "\n";
+// Afficher si il y a des doublons
+echo aDesDoublons($tab1) ? "Il y a des doublons (True) \n" : "Pas de doublons (False) \n";
 ?>
